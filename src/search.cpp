@@ -36,6 +36,9 @@
 #include "tt.h"
 #include "uci.h"
 #include "syzygy/tbprobe.h"
+#include "Model.h"
+#include "Tensor.h"
+#include "chrono"
 
 namespace Search {
 
@@ -52,8 +55,12 @@ namespace Tablebases {
 
 namespace TB = Tablebases;
 
+Model model = Model("eval.pb");
+auto input = new Tensor(model,"input_input");
+auto output = new Tensor(model,"output/Softmax");
+
 using std::string;
-using Eval::evaluate;
+// using Eval::evaluate;
 using namespace Search;
 
 namespace {
@@ -187,12 +194,63 @@ namespace {
 } // namespace
 
 
+Value Search::evaluate(const Position& pos){
+    input->set_data(pos.tensor());
+
+    model.run(input,output);
+    // float max = 0.0;
+    // int arg = 0;
+    // int k =0;
+    // for (float f : output->get_data<float>()) {
+    //     if(f > max){
+    //         max = f;
+    //         arg = k;
+    //     }
+    //     k++;
+    // }
+
+    return Value(int(-650*log(1/output->get_data<float>()[0] -1)*1.28));
+}
+
+Value Search::evaluate(){
+    std::vector<int> test(768);
+    std::fill(test.begin(),test.end(),1);
+    input->set_data(test);
+    auto start = std::chrono::high_resolution_clock::now();
+    model.run(input,output);
+    auto finish = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed = finish - start;
+    std::cout << elapsed.count() << std::endl;
+
+    return VALUE_ZERO;
+}
+
+
 /// Search::init() is called at startup to initialize various lookup tables
 
 void Search::init() {
 
   for (int i = 1; i < MAX_MOVES; ++i)
       Reductions[i] = int(23.4 * std::log(i));
+      model.init();
+      for (int k = 0 ; k < 100; k++)
+      Search::evaluate();
+
+    //   auto input_a = new Tensor(model, "input_a");
+    // auto input_b = new Tensor(model, "input_b");
+    // auto output  = new Tensor(model, "result");
+
+    // std::vector<float> data(100);
+    // std::iota(data.begin(), data.end(), 0);
+
+    // input_a->set_data(data);
+    // input_b->set_data(data);
+
+    // model.run({input_a, input_b}, output);
+    // for (float f : output->get_data<float>()) {
+    //     std::cout << f << " ";
+    // }
+    // std::cout << std::endl;
 }
 
 

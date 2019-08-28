@@ -102,6 +102,8 @@ extern LimitsType Limits;
 
 void init();
 void clear();
+Value evaluate(const Position& pos);
+Value evaluate();
 
 } // namespace Search
 
