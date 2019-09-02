@@ -481,26 +481,49 @@ std::vector<int> _tensor(768);
 
 std::fill(_tensor.begin(),_tensor.end(),0);
 
-for (Rank r = RANK_8; r >= RANK_1; --r)
-{
-for (File f = FILE_A; f <= FILE_H; ++f)
-{
-switch (piece_on(make_square(f, r))){
-case Piece::W_KING: {_tensor[0+r*8+f] = 1;break;}
-case Piece::W_QUEEN: {_tensor[1*64+r*8+f] = 1;break;}
-case Piece::W_ROOK: {_tensor[128+r*8+f] = 1;break;}
-case Piece::W_KNIGHT: {_tensor[192+r*8+f] = 1;break;}
-case Piece::W_BISHOP: {_tensor[256+r*8+f] = 1;break;}
-case Piece::W_PAWN: {_tensor[320+r*8+f] = 1;break;}
-case Piece::B_PAWN: {_tensor[384+r*8+f] = 1;break;}
-case Piece::B_BISHOP: {_tensor[448+r*8+f] = 1;break;}
-case Piece::B_KNIGHT: {_tensor[512+r*8+f] = 1;break;}
-case Piece::B_ROOK: {_tensor[576+r*8+f] = 1;break;}
-case Piece::B_QUEEN: {_tensor[640+r*8+f] = 1;break;}
-case Piece::B_KING: {_tensor[704+r*8+f] = 1;break;}
-}
-}
-}
+if(sideToMove==WHITE)
+    for (Rank r = RANK_8; r >= RANK_1; --r)
+    {
+        for (File f = FILE_A; f <= FILE_H; ++f)
+        {
+            switch (piece_on(make_square(f, r))){
+                case Piece::W_KING: {_tensor[0+r*8+f] = 1;break;}
+                case Piece::W_QUEEN: {_tensor[1*64+r*8+f] = 1;break;}
+                case Piece::W_ROOK: {_tensor[128+r*8+f] = 1;break;}
+                case Piece::W_KNIGHT: {_tensor[192+r*8+f] = 1;break;}
+                case Piece::W_BISHOP: {_tensor[256+r*8+f] = 1;break;}
+                case Piece::W_PAWN: {_tensor[320+r*8+f] = 1;break;}
+                case Piece::B_PAWN: {_tensor[384+r*8+f] = 1;break;}
+                case Piece::B_BISHOP: {_tensor[448+r*8+f] = 1;break;}
+                case Piece::B_KNIGHT: {_tensor[512+r*8+f] = 1;break;}
+                case Piece::B_ROOK: {_tensor[576+r*8+f] = 1;break;}
+                case Piece::B_QUEEN: {_tensor[640+r*8+f] = 1;break;}
+                case Piece::B_KING: {_tensor[704+r*8+f] = 1;break;}
+            }
+        }
+    }
+else
+    for (Rank r = RANK_8; r >= RANK_1; --r)
+    {
+        for (File f = FILE_A; f <= FILE_H; ++f)
+        {
+            switch (piece_on(make_square(f, r))){
+                case Piece::B_KING: {_tensor[0+(7-r)*8+f-f] = 1;break;}
+                case Piece::B_QUEEN: {_tensor[1*64+(7-r)*8+f-f] = 1;break;}
+                case Piece::B_ROOK: {_tensor[128+(7-r)*8+f-f] = 1;break;}
+                case Piece::B_KNIGHT: {_tensor[192+(7-r)*8+f-f] = 1;break;}
+                case Piece::B_BISHOP: {_tensor[256+(7-r)*8+f-f] = 1;break;}
+                case Piece::B_PAWN: {_tensor[320+(7-r)*8+f-f] = 1;break;}
+                case Piece::W_PAWN: {_tensor[384+(7-r)*8+f-f] = 1;break;}
+                case Piece::W_BISHOP: {_tensor[448+(7-r)*8+f-f] = 1;break;}
+                case Piece::W_KNIGHT: {_tensor[512+(7-r)*8+f-f] = 1;break;}
+                case Piece::W_ROOK: {_tensor[576+(7-r)*8+f-f] = 1;break;}
+                case Piece::W_QUEEN: {_tensor[640+(7-r)*8+f-f] = 1;break;}
+                case Piece::W_KING: {_tensor[704+(7-r)*8+f-f] = 1;break;}
+            }
+        }
+    }
+ 
 
 return _tensor;
 
