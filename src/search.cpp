@@ -233,8 +233,8 @@ void Search::init() {
   for (int i = 1; i < MAX_MOVES; ++i)
       Reductions[i] = int(23.4 * std::log(i));
       model.init();
-      for (int k = 0 ; k < 100; k++)
-      Search::evaluate();
+    //   for (int k = 0 ; k < 100; k++)
+    //   Search::evaluate();
 
     //   auto input_a = new Tensor(model, "input_a");
     // auto input_b = new Tensor(model, "input_b");
