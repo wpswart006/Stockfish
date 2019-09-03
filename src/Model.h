@@ -5,7 +5,7 @@
 #ifndef CPPFLOW_MODEL_H
 #define CPPFLOW_MODEL_H
 
-#include <tensorflow/c/c_api.h>
+#include "/usr/local/wp/include/tensorflow/c/c_api.h"
 #include <string>
 #include <vector>
 #include <iostream>

@@ -32,7 +32,7 @@ endif
 PREFIX = /usr/local
 BINDIR = $(PREFIX)/bin
 
-LDFLAGS = /usr/local/lib/libtensorflow.so
+LDFLAGS = /usr/local/wp/lib/libtensorflow.so
 
 ### Built-in benchmark for pgo-builds
 PGOBENCH = ./$(EXE) bench
