@@ -82,7 +82,7 @@ public:
   Position& set(const std::string& fenStr, bool isChess960, StateInfo* si, Thread* th);
   Position& set(const std::string& code, Color c, StateInfo* si);
   const std::string fen() const;
-  const std::vector<int> tensor() const;
+  const std::vector<float> tensor() const;
   // Position representation
   Bitboard pieces() const;
   Bitboard pieces(PieceType pt) const;

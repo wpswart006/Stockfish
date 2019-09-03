@@ -475,9 +475,9 @@ const string Position::fen() const {
   return ss.str();
 }
 
-const std::vector<int> Position::tensor() const{
+const std::vector<float> Position::tensor() const{
 
-std::vector<int> _tensor(768);
+std::vector<float> _tensor(768);
 
 std::fill(_tensor.begin(),_tensor.end(),0);
 
@@ -508,18 +508,18 @@ else
         for (File f = FILE_A; f <= FILE_H; ++f)
         {
             switch (piece_on(make_square(f, r))){
-                case Piece::B_KING: {_tensor[0+(7-r)*8+f-f] = 1;break;}
-                case Piece::B_QUEEN: {_tensor[1*64+(7-r)*8+f-f] = 1;break;}
-                case Piece::B_ROOK: {_tensor[128+(7-r)*8+f-f] = 1;break;}
-                case Piece::B_KNIGHT: {_tensor[192+(7-r)*8+f-f] = 1;break;}
-                case Piece::B_BISHOP: {_tensor[256+(7-r)*8+f-f] = 1;break;}
-                case Piece::B_PAWN: {_tensor[320+(7-r)*8+f-f] = 1;break;}
-                case Piece::W_PAWN: {_tensor[384+(7-r)*8+f-f] = 1;break;}
-                case Piece::W_BISHOP: {_tensor[448+(7-r)*8+f-f] = 1;break;}
-                case Piece::W_KNIGHT: {_tensor[512+(7-r)*8+f-f] = 1;break;}
-                case Piece::W_ROOK: {_tensor[576+(7-r)*8+f-f] = 1;break;}
-                case Piece::W_QUEEN: {_tensor[640+(7-r)*8+f-f] = 1;break;}
-                case Piece::W_KING: {_tensor[704+(7-r)*8+f-f] = 1;break;}
+                case Piece::B_KING: {_tensor[11+((7-r)*8+(7-f))*12] = 1;break;}
+                case Piece::B_QUEEN: {_tensor[10+((7-r)*8+(7-f))*12] = 1;break;}
+                case Piece::B_ROOK: {_tensor[9+((7-r)*8+(7-f))*12] = 1;break;}
+                case Piece::B_KNIGHT: {_tensor[8+((7-r)*8+(7-f))*12] = 1;break;}
+                case Piece::B_BISHOP: {_tensor[7+((7-r)*8+(7-f))*12] = 1;break;}
+                case Piece::B_PAWN: {_tensor[6+((7-r)*8+(7-f))*12] = 1;break;}
+                case Piece::W_PAWN: {_tensor[5+((7-r)*8+(7-f))*12] = 1;break;}
+                case Piece::W_BISHOP: {_tensor[4+((7-r)*8+(7-f))*12] = 1;break;}
+                case Piece::W_KNIGHT: {_tensor[3+((7-r)*8+(7-f))*12] = 1;break;}
+                case Piece::W_ROOK: {_tensor[2+((7-r)*8+(7-f))*12] = 1;break;}
+                case Piece::W_QUEEN: {_tensor[1+((7-r)*8+(7-f))*12] = 1;break;}
+                case Piece::W_KING: {_tensor[((7-r)*8+(7-f))*12] = 1;break;}
             }
         }
     }
