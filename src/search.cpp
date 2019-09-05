@@ -208,8 +208,12 @@ Value Search::evaluate(const Position& pos){
     //     }
     //     k++;
     // }
+    float o = output->get_data<float>()[0];
+    if (o <= 0.0){
+	    o = 0.00001;
+    }
 
-    return Value(int(-650*log(1/output->get_data<float>()[0] -1)*1.28));
+    return Value(int(-650*log(1/o -1)*1.28));
 }
 
 Value Search::evaluate(){

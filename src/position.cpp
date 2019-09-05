@@ -487,18 +487,18 @@ if(sideToMove==WHITE)
         for (File f = FILE_A; f <= FILE_H; ++f)
         { 
             switch (piece_on(make_square(f, r))){
-                case Piece::W_KING: {_tensor[11+(r*8+f)*12] = 1;break;}
-                case Piece::W_QUEEN: {_tensor[10+(r*8+f)*12] = 1;break;}
-                case Piece::W_ROOK: {_tensor[9+(r*8+f)*12] = 1;break;}
-                case Piece::W_KNIGHT: {_tensor[8+(r*8+f)*12] = 1;break;}
-                case Piece::W_BISHOP: {_tensor[7+(r*8+f)*12] = 1;break;}
-                case Piece::W_PAWN: {_tensor[6+(r*8+f)*12] = 1;break;}
-                case Piece::B_PAWN: {_tensor[5+(r*8+f)*12] = 1;break;}
-                case Piece::B_BISHOP: {_tensor[4+(r*8+f)*12] = 1;break;}
-                case Piece::B_KNIGHT: {_tensor[3+(r*8+f)*12] = 1;break;}
-                case Piece::B_ROOK: {_tensor[2+(r*8+f)*12] = 1;break;}
-                case Piece::B_QUEEN: {_tensor[1+(r*8+f)*12] = 1;break;}
-                case Piece::B_KING: {_tensor[(r*8+f)*12] = 1;break;}
+                case Piece::W_KING: {_tensor[11+(r*8+f)*12] = 1.0;break;}
+                case Piece::W_QUEEN: {_tensor[10+(r*8+f)*12] = 1.0;break;}
+                case Piece::W_ROOK: {_tensor[9+(r*8+f)*12] = 1.0;break;}
+                case Piece::W_KNIGHT: {_tensor[8+(r*8+f)*12] = 1.0;break;}
+                case Piece::W_BISHOP: {_tensor[7+(r*8+f)*12] = 1.0;break;}
+                case Piece::W_PAWN: {_tensor[6+(r*8+f)*12] = 1.0;break;}
+                case Piece::B_PAWN: {_tensor[5+(r*8+f)*12] = 1.0;break;}
+                case Piece::B_BISHOP: {_tensor[4+(r*8+f)*12] = 1.0;break;}
+                case Piece::B_KNIGHT: {_tensor[3+(r*8+f)*12] = 1.0;break;}
+                case Piece::B_ROOK: {_tensor[2+(r*8+f)*12] = 1.0;break;}
+                case Piece::B_QUEEN: {_tensor[1+(r*8+f)*12] = 1.0;break;}
+                case Piece::B_KING: {_tensor[(r*8+f)*12] = 1.0;break;}
             }
         }
     }
@@ -508,18 +508,18 @@ else
         for (File f = FILE_A; f <= FILE_H; ++f)
         {
             switch (piece_on(make_square(f, r))){
-                case Piece::B_KING: {_tensor[11+((7-r)*8+(7-f))*12] = 1;break;}
-                case Piece::B_QUEEN: {_tensor[10+((7-r)*8+(7-f))*12] = 1;break;}
-                case Piece::B_ROOK: {_tensor[9+((7-r)*8+(7-f))*12] = 1;break;}
-                case Piece::B_KNIGHT: {_tensor[8+((7-r)*8+(7-f))*12] = 1;break;}
-                case Piece::B_BISHOP: {_tensor[7+((7-r)*8+(7-f))*12] = 1;break;}
-                case Piece::B_PAWN: {_tensor[6+((7-r)*8+(7-f))*12] = 1;break;}
-                case Piece::W_PAWN: {_tensor[5+((7-r)*8+(7-f))*12] = 1;break;}
-                case Piece::W_BISHOP: {_tensor[4+((7-r)*8+(7-f))*12] = 1;break;}
-                case Piece::W_KNIGHT: {_tensor[3+((7-r)*8+(7-f))*12] = 1;break;}
-                case Piece::W_ROOK: {_tensor[2+((7-r)*8+(7-f))*12] = 1;break;}
-                case Piece::W_QUEEN: {_tensor[1+((7-r)*8+(7-f))*12] = 1;break;}
-                case Piece::W_KING: {_tensor[((7-r)*8+(7-f))*12] = 1;break;}
+                case Piece::B_KING: {_tensor[11+((7-r)*8+(7-f))*12] = 1.0;break;}
+                case Piece::B_QUEEN: {_tensor[10+((7-r)*8+(7-f))*12] = 1.0;break;}
+                case Piece::B_ROOK: {_tensor[9+((7-r)*8+(7-f))*12] = 1.0;break;}
+                case Piece::B_KNIGHT: {_tensor[8+((7-r)*8+(7-f))*12] = 1.0;break;}
+                case Piece::B_BISHOP: {_tensor[7+((7-r)*8+(7-f))*12] = 1.0;break;}
+                case Piece::B_PAWN: {_tensor[6+((7-r)*8+(7-f))*12] = 1.0;break;}
+                case Piece::W_PAWN: {_tensor[5+((7-r)*8+(7-f))*12] = 1.0;break;}
+                case Piece::W_BISHOP: {_tensor[4+((7-r)*8+(7-f))*12] = 1.0;break;}
+                case Piece::W_KNIGHT: {_tensor[3+((7-r)*8+(7-f))*12] = 1.0;break;}
+                case Piece::W_ROOK: {_tensor[2+((7-r)*8+(7-f))*12] = 1.0;break;}
+                case Piece::W_QUEEN: {_tensor[1+((7-r)*8+(7-f))*12] = 1.0;break;}
+                case Piece::W_KING: {_tensor[((7-r)*8+(7-f))*12] = 1.0;break;}
             }
         }
     }
